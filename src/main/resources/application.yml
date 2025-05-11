@@ -1,0 +1,9 @@
+spring:
+  profiles:
+    active: default
+
+smtp:
+  host: ${SMTP_HOST:smtp.mailtrap.io}
+  port: ${SMTP_PORT:587}
+  user: ${SMTP_USER}
+  pass: ${SMTP_PASS}
