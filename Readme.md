@@ -63,9 +63,9 @@ sender.send(email, Optional.empty());
 | Camada | Depende de | Muda quando… |
 |--------|------------|--------------|
 | **Domínio** (`Email`) | nada | regra de negócio mudar |
-| **Porta IN** (`EmailSenderUseCase`) | domínio | API pública mudar |
-| **Serviço** (`SendEmailService`) | portas | fluxo mudar |
-| **Porta OUT** (`EmailSenderPort`) | domínio | contrato externo mudar |
+| **Porta IN** (`EmailSenderInput`) | domínio | API pública mudar |
+| **Serviço** (`EmailUseCase`) | portas | fluxo mudar |
+| **Porta OUT** (`EmailSenderOutput`) | domínio | contrato externo mudar |
 | **Adapter** (SMTP, SendGrid…) | bibliotecas externas | provedor mudar |
 
 > **Desacoplamento garantido:** pode refatorar ou trocar ✈️ que o restante continua intacto.
