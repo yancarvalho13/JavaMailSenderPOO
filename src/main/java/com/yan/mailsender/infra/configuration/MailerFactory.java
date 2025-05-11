@@ -8,10 +8,10 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class MailerFactory {
-  @Value("${smtp.host}") public static String host;
-  @Value("${smtp.port}") public static int port;
-  @Value("${smtp.user}") public static String username;
-  @Value("${smtp.pass}") public static String password;
+public static String host = System.getenv("SMTP_HOST");
+public static Integer port = Integer.valueOf(System.getenv("SMTP_PORT"));
+public static String username = System.getenv("SMTP_USERNAME");
+public static String password = System.getenv("SMTP_PASS");
   private MailerFactory() {}
 
   public  static Mailer fromEnv(){

@@ -15,25 +15,12 @@ import java.util.Optional;
 
 public class demo {
   public static void main(String[] args) {
-    Mailer mailer = MailerBuilder
-            .withSMTPServer(
-                    System.getenv("SMTP_HOST"),
-                    Integer.parseInt(System.getenv("SMTP_PORT")),
-                    System.getenv("SMTP_USERNAME"),
-                    System.getenv("SMTP_PASS"))
-            .withTransportStrategy(TransportStrategy.SMTP_TLS)
-            .withDebugLogging(true)
-            .buildMailer();
-    System.out.println(System.getenv("SMTP_HOST")+System.getenv("SMTP_PORT")
-    +System.getenv("SMTP_USERNAME")+System.getenv("SMTP_PASS"));
+    Mailer mailer = MailerFactory.fromEnv();
     EmailSenderInput port = EmailModuleConfig.simpleJavaMail(mailer);
-
-    Email email = new Email(
-            new EmailAddress("yansilva303@gmail.com"),
+    Email email = new Email(new EmailAddress("yansilva303@gmail.com"),
             List.of(new EmailAddress("yan.carvalho@ucsal.edu.br")),
             "Teste Simple Java Mail – Funciona!",
             "<h3>Parabéns 🎉</h3><p>Seu adapter enviou este e-mail.</p>");
-
     port.send(email, Optional.empty());
     System.out.println("Email sent!");
   }
