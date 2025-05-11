@@ -2,8 +2,9 @@ spring:
   profiles:
     active: default
 
+
 smtp:
-  host: ${SMTP_HOST:smtp.mailtrap.io}
+  host: ${SMTP_HOST:smtp.gmail.com}
   port: ${SMTP_PORT:587}
   user: ${SMTP_USER}
   pass: ${SMTP_PASS}

@@ -4,7 +4,9 @@ import org.simplejavamail.api.mailer.Mailer;
 import org.simplejavamail.api.mailer.config.TransportStrategy;
 import org.simplejavamail.mailer.MailerBuilder;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Configuration;
 
+@Configuration
 public class MailerFactory {
   @Value("${smtp.host}") public static String host;
   @Value("${smtp.port}") public static int port;
